@@ -37,6 +37,9 @@ endif
 
 all: invidious
 
+cross-compile: get-libs
+	crystal build src/invidious.cr $(FLAGS) --progress --stats --error-trace --cross-compile --target "x86_64-unknown-linux-gnu"
+
 get-libs:
 	shards install --production
 
